@@ -1,4 +1,4 @@
 # test
 
 edit 2
-edit  idt other
+edit  idt other test
