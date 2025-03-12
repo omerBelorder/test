@@ -1,7 +1,5 @@
 name: Jira Changelog
 on: [push]
-    branches:
-      - main
 
 jobs:
   changelog:
