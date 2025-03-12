@@ -1,1 +1,2 @@
-
+- name: Jira Changelog
+  uses: connorsmallman/github-jira-changelog-action@1.2.0
