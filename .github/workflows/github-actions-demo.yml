@@ -1,6 +1,6 @@
 on: [push]
 jobs:
-  hello_world_job:
+  changelog:
     runs-on: ubuntu-latest
     name: Changelog
     steps:
@@ -9,17 +9,15 @@ jobs:
       - name: Set Version
         run: echo ::set-env name=VERSION::1.1.1
       # To use this repository's private action, you must check out the repository
-      # - name: Checkout
-        # uses: actions/checkout@v1
+      - name: Checkout
+        uses: connorsmallman/github-jira-changelog-action@1.2.0/actions/checkout@v1
       - name: Changelog
         id: changelog
         uses: actions/jira-changelog@v1
         with:
           jira_host: 'https://belorder.atlassian.net'
           jira_email: 'omer@belorder.com'
-          jira_token: 'qWoJBdlEp6pJy15fc9tGpsOOR2L5i35v'
+          jira_token: 'ATATT3xFfGF05VS0Ya0sShhQDNLpMIfySIMvQ_xnRaKAC-Nu-9lLlkjAjDbfchcnapOENDxO9KFjtF7L5oRpWnZ7WRCuKJEmpvDdAopNr4QZuHyD3SQUmkQzBDdUgvvlnCK92EUBvlDBU7TizrVKc0fy2rubLVde8xPhv_X2LSt0PqOR62g6TJc=F098AB30'
           jira_base_url: 'https://belorder.atlassian.net'
-          source_control_range_from: 'develop'
-          source_control_range_to: 'master'
       - name: Get the changelog message
         run: echo "${{ steps.changelog.outputs.changelog_message }}"
