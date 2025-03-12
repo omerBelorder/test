@@ -1,4 +1,8 @@
+name: Jira Changelog
 on: [push]
+    branches:
+      - main
+
 jobs:
   changelog:
     runs-on: ubuntu-latest
@@ -10,10 +14,10 @@ jobs:
         run: echo ::set-env name=VERSION::1.1.1
       # To use this repository's private action, you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Changelog
         id: changelog
-        uses: actions/jira-changelog@v1.2.0
+        uses: atlassian/gajira-changelog@v2
         with:
           jira_host: 'https://belorder.atlassian.net'
           jira_email: 'omer@belorder.com'
