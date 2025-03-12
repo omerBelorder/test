@@ -4,6 +4,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Changelog
     steps:
+      - name: Jira Changelog
+        uses: connorsmallman/github-jira-changelog-action@1.2.0
       - name: Set Version
         run: echo ::set-env name=VERSION::1.1.1
       # To use this repository's private action, you must check out the repository
@@ -13,10 +15,10 @@ jobs:
         id: changelog
         uses: actions/jira-changelog@v1
         with:
-          jira_host: 'myapp.atlassian.net'
-          jira_email: 'jirauser@myapp.com'
+          jira_host: 'https://belorder.atlassian.net'
+          jira_email: 'omer@belorder.com'
           jira_token: 'qWoJBdlEp6pJy15fc9tGpsOOR2L5i35v'
-          jira_base_url: 'https://yoursite.atlassian.net'
+          jira_base_url: 'https://belorder.atlassian.net'
           source_control_range_from: 'develop'
           source_control_range_to: 'master'
       - name: Get the changelog message
